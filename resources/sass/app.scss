@@ -1,0 +1,82 @@
+
+@tailwind base;
+
+ input:invalid, textarea:invalid, select:invalid {
+    box-shadow: none;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer components {
+
+    .btn {
+        @apply font-bold py-2 px-4 border border-transparent rounded-md text-white;
+    }
+
+    .btn-blue {
+        @apply bg-primary-light;
+    }
+
+    .btn-blue:hover {
+        @apply bg-primary-lighter;
+    }
+
+    .btn-red {
+        @apply bg-red-600;
+    }
+
+    .btn-red:hover {
+        @apply bg-red-500;
+    }
+
+    .btn-gray {
+        @apply bg-gray-600;
+    }
+
+    .btn-gray:hover {
+        @apply bg-gray-500;
+    }
+
+    .btn-gray:focus {
+        @apply outline-none border-gray-700 shadow-outline-gray;
+    }
+
+    .link {
+        @apply text-primary-light;
+    }
+
+    .link-delete {
+        @apply text-red-700;
+    }
+
+    .link:hover {
+        @apply text-primary-lighter;
+    }
+
+    .link:focus {
+        @apply outline-none underline;
+    }
+
+    .error {
+        @apply border-red-300 text-red-900;
+    }
+
+    .error:focus {
+        @apply border-red-300 shadow-outline-red;
+    }
+
+    .input-field {
+        @apply appearance-none px-3 py-2 border border-gray-300 rounded-md text-sm leading-5;
+    }
+
+    .input-field:focus {
+        @apply outline-none shadow-outline-blue border-blue-300;
+    }
+
+}

@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+ app:
+   build:
+     context: dockerfiles
+     dockerfile: apachedockerfile
+   working_dir: /var/www/html
+   volumes:
+     - ./:/var/www/html
+   ports:
+     - "8001:80"
+ database:
+   build:
+     context: dockerfiles
+     dockerfile: mysqldockerfile
+   volumes:
+     - ./mysql/dbdata:/var/lib/mysql
+   environment:
+     - "MYSQL_DATABASE=homestead"
+     - "MYSQL_USER=homestead"
+     - "MYSQL_PASSWORD=secret"
+     - "MYSQL_ROOT_PASSWORD=secret"
+   ports:
+     - "33065:3306"
+   command: --ignore-db-dir=lost+found --max-allowed-packet=1073741824

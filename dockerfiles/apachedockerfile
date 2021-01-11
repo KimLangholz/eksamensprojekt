@@ -1,0 +1,17 @@
+FROM php:7.4-apache
+
+RUN apt-get update && \
+    apt-get install -y \
+    libzip-dev \
+    libjpeg-dev \
+    libpng-dev
+
+RUN docker-php-ext-configure gd \
+  --with-jpeg
+
+RUN docker-php-ext-install gd pdo pdo_mysql mysqli
+
+RUN a2enmod rewrite
+
+
+
